@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>💖 Happy 20/10 💖</title>
+        <style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffe6eb, #fff5f8);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Thiệp chính */
+.card {
+  text-align: center;
+  position: relative;
+  padding: 60px 100px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  box-shadow: 0 0 40px rgba(255, 100, 150, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 2s ease forwards;
+}
+
+/* Chữ chính */
+h1 {
+  font-size: 70px;
+  color: #e55c85;
+  margin: 0;
+  animation: glow 3s infinite alternate;
+}
+
+/* Hiệu ứng glow */
+@keyframes glow {
+  from { text-shadow: 0 0 10px #f9b4c7, 0 0 20px #ffc8dd; }
+  to { text-shadow: 0 0 40px #ff7ea8, 0 0 80px #ff9ec7; }
+}
+
+/* Hoa hai bên */
+.flower {
+  position: absolute;
+  width: 100px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.flower.left {
+  left: -70px;
+  top: 40%;
+}
+
+.flower.right {
+  right: -70px;
+  top: 40%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* Icon/sticker đáng yêu */
+.icon {
+  position: absolute;
+  font-size: 30px;
+  opacity: 0;
+  animation: fadeUp 6s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  0% { transform: translateY(20px) scale(0.9); opacity: 0; }
+  30% { opacity: 1; }
+  70% { transform: translateY(-40px) scale(1.1); opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Toàn trang fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>💐 20 • 10 💖</h1>
+            <p style="font-size:22px; color:#555; margin-top:15px;">
+                Chúc em luôn xinh đẹp, hạnh phúc và rạng rỡ như những bông hoa
+                này 🌷
+            </p>
+
+            <!-- Hoa hai bên -->
+            <img src="https://i.imgur.com/L2NnMCq.png" class="flower left"
+                alt="flower left">
+            <img src="https://i.imgur.com/L2NnMCq.png" class="flower right"
+                alt="flower right">
+
+            <!-- Hàng loạt icon/sticker dễ thương -->
+            <div class="icon"
+                style="left:20%; top:70%; animation-delay:0s;">💖</div>
+            <div class="icon"
+                style="left:60%; top:75%; animation-delay:0.5s;">🌸</div>
+            <div class="icon"
+                style="left:30%; top:60%; animation-delay:1s;">🎀</div>
+            <div class="icon"
+                style="left:70%; top:65%; animation-delay:1.5s;">🧸</div>
+            <div class="icon"
+                style="left:45%; top:85%; animation-delay:2s;">🐱</div>
+            <div class="icon"
+                style="left:35%; top:50%; animation-delay:2.5s;">🦋</div>
+            <div class="icon"
+                style="left:75%; top:55%; animation-delay:3s;">🌷</div>
+            <div class="icon"
+                style="left:25%; top:40%; animation-delay:3.5s;">✨</div>
+            <div class="icon"
+                style="left:55%; top:35%; animation-delay:4s;">💫</div>
+            <div class="icon"
+                style="left:80%; top:45%; animation-delay:4.5s;">🐻</div>
+            <div class="icon"
+                style="left:15%; top:55%; animation-delay:5s;">💐</div>
+            <div class="icon"
+                style="left:50%; top:25%; animation-delay:5.5s;">🌼</div>
+        </div>
+    </body>
+</html>
