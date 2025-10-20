@@ -3,133 +3,175 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>💖 Happy 20/10 💖</title>
+        <title>Thiệp 20/10</title>
         <style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #ffe6eb, #fff5f8);
-  overflow: hidden;
-  font-family: "Poppins", sans-serif;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #fff5f8, #ffe9ef);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
 
-/* Thiệp chính */
-.card {
-  text-align: center;
-  position: relative;
-  padding: 60px 100px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 30px;
-  box-shadow: 0 0 40px rgba(255, 100, 150, 0.3);
-  backdrop-filter: blur(10px);
-  animation: fadeIn 2s ease forwards;
-}
+  /* --- Giai đoạn 1: Thiệp mở đầu --- */
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(145deg, #fff, #ffe6ea);
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(229, 92, 55, 0.2);
+    width: 80%;
+    max-width: 360px;
+    text-align: center;
+    padding: 45px 25px;
+    animation: fadeOutCard 1.5s ease-in-out 1.5s forwards;
+    border: 2px solid rgba(229, 92, 55, 0.2);
+  }
 
-/* Chữ chính */
-h1 {
-  font-size: 70px;
-  color: #e55c85;
-  margin: 0;
-  animation: glow 3s infinite alternate;
-}
+  .card h1 {
+    color: #e55c37;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
 
-/* Hiệu ứng glow */
-@keyframes glow {
-  from { text-shadow: 0 0 10px #f9b4c7, 0 0 20px #ffc8dd; }
-  to { text-shadow: 0 0 40px #ff7ea8, 0 0 80px #ff9ec7; }
-}
+  .card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 
-/* Hoa hai bên */
+  @keyframes fadeOutCard {
+    to { opacity: 0; transform: translate(-50%, -50%) scale(0.9); visibility: hidden; }
+  }
+
+  /* --- Giai đoạn 2: Hoa mọc lên --- */
+  .flower-stage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0;
+    animation: showStage 0.5s ease-in-out 2s forwards;
+  }
+
+  @keyframes showStage {
+    to { opacity: 1; }
+  }
+
 .flower {
   position: absolute;
-  width: 100px;
-  animation: float 5s ease-in-out infinite;
+  bottom: 25%; /* 🌸 Đưa hoa lên cao hơn để gần dòng chữ */
+  width: 38px;
+  height: 110px;
+  background: linear-gradient(to top, #7ac36a 50%, transparent 50%);
+  border-radius: 20px;
+  transform-origin: bottom;
+  animation: grow 3s ease-out forwards, sway 4s ease-in-out infinite 3s;
 }
 
-.flower.left {
-  left: -70px;
-  top: 40%;
+/* Hiệu ứng hoa đung đưa nhẹ nhàng */
+@keyframes sway {
+  0% { transform: rotate(0deg) scaleY(1); }
+  25% { transform: rotate(2deg) scaleY(1.02); }
+  50% { transform: rotate(0deg) scaleY(1); }
+  75% { transform: rotate(-2deg) scaleY(1.02); }
+  100% { transform: rotate(0deg) scaleY(1); }
 }
 
-.flower.right {
-  right: -70px;
-  top: 40%;
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-10px) rotate(3deg); }
-}
-
-/* Icon/sticker đáng yêu */
-.icon {
+/* Bông hoa nở */
+.flower::before {
+  content: "🌸";
   position: absolute;
-  font-size: 30px;
-  opacity: 0;
-  animation: fadeUp 6s ease-in-out infinite;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  font-size: 2.1rem;
+  animation: bloom 3s ease-out forwards, floatUp 6s ease-in-out infinite 4s;
+  animation-delay: 1.2s;
 }
 
-@keyframes fadeUp {
-  0% { transform: translateY(20px) scale(0.9); opacity: 0; }
-  30% { opacity: 1; }
-  70% { transform: translateY(-40px) scale(1.1); opacity: 1; }
-  100% { opacity: 0; }
+/* Hiệu ứng hoa nổi nhẹ lên rồi hạ xuống */
+@keyframes floatUp {
+  0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+  50% { transform: translateX(-50%) translateY(-10px) scale(1.05); }
 }
 
-/* Toàn trang fade-in */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
+  @keyframes grow {
+    0% { transform: scaleY(0); opacity: 0; }
+    100% { transform: scaleY(1); opacity: 1; }
+  }
+
+  .flower::before {
+    content: "🌸";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 2.1rem;
+    animation: bloom 2s ease-out forwards;
+    animation-delay: 1s;
+  }
+
+  @keyframes bloom {
+    0% { transform: translateX(-50%) scale(0); opacity: 0; }
+    100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  }
+
+  /* Vị trí ngẫu nhiên của các bông hoa */
+  .flower:nth-child(1) { left: 10%; animation-delay: 2s; }
+  .flower:nth-child(2) { left: 25%; animation-delay: 2.2s; }
+  .flower:nth-child(3) { left: 40%; animation-delay: 2.4s; }
+  .flower:nth-child(4) { left: 55%; animation-delay: 2.6s; }
+  .flower:nth-child(5) { left: 70%; animation-delay: 2.8s; }
+  .flower:nth-child(6) { left: 85%; animation-delay: 3s; }
+
+  /* --- Dòng chữ chúc mừng --- */
+  .message {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #e55c37;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInText 0.5s ease-in-out 0.5s forwards;
+    text-shadow: 0 0 10px rgba(229, 92, 55, 0.3);
+  }
+
+  @keyframes fadeInText {
+    to { opacity: 1; transform: translate(-50%, 0) scale(1.05); }
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .card { width: 90%; padding: 30px 10px; }
+    .card h1 { font-size: 1.7rem; }
+    .message { font-size: 1.2rem; bottom: 45%; }
+    .flower { width: 28px; height: 90px; }
+  }
 </style>
     </head>
     <body>
         <div class="card">
-            <h1>💐 20 • 10 💖</h1>
-            <p style="font-size:22px; color:#555; margin-top:15px;">
-                Chúc em luôn xinh đẹp, hạnh phúc và rạng rỡ như những bông hoa
-                này 🌷
-            </p>
+            <h1>💌 20/10 💌</h1>
+            <p>Gửi em – bông hoa đẹp nhất<br>trong mùa thu này 🌷</p>
+        </div>
 
-            <!-- Hoa hai bên -->
-            <img
-                src="https://png.pngtree.com/png-clipart/20201225/ourmid/pngtree-hand-painted-flower-bouquet-small-fresh-png-image_2594285.jpg"
-                class="flower left"
-                alt="flower left">
-            <img
-                src="https://img.lovepik.com/free-png/20211204/lovepik-bouquet-png-image_401306658_wh1200.png"
-                class="flower right"
-                alt="flower right">
-
-            <!-- Hàng loạt icon/sticker dễ thương -->
-            <div class="icon"
-                style="left:20%; top:70%; animation-delay:0s;">💖</div>
-            <div class="icon"
-                style="left:60%; top:75%; animation-delay:0.5s;">🌸</div>
-            <div class="icon"
-                style="left:30%; top:60%; animation-delay:1s;">🎀</div>
-            <div class="icon"
-                style="left:70%; top:65%; animation-delay:1.5s;">🧸</div>
-            <div class="icon"
-                style="left:45%; top:85%; animation-delay:2s;">🐱</div>
-            <div class="icon"
-                style="left:35%; top:50%; animation-delay:2.5s;">🦋</div>
-            <div class="icon"
-                style="left:75%; top:55%; animation-delay:3s;">🌷</div>
-            <div class="icon"
-                style="left:25%; top:40%; animation-delay:3.5s;">✨</div>
-            <div class="icon"
-                style="left:55%; top:35%; animation-delay:4s;">💫</div>
-            <div class="icon"
-                style="left:80%; top:45%; animation-delay:4.5s;">🐻</div>
-            <div class="icon"
-                style="left:15%; top:55%; animation-delay:5s;">💐</div>
-            <div class="icon"
-                style="left:50%; top:25%; animation-delay:5.5s;">🌼</div>
+        <div class="flower-stage">
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="message">Chúc em cô gái của anh 20/10 thật xinh đẹp và
+                hạnh phúc
+                ❤️</div>
         </div>
     </body>
 </html>
